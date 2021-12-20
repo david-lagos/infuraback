@@ -1,0 +1,6 @@
+/.env
+/node_modules
+/migrations
+/contracts
+/test
+/truffle-config.js
