@@ -4,9 +4,9 @@ async function start() {
 
     let myNewData = [];
 
-    const myCoins = await getDepositCoins();
+    const myCoins = await getDepositCoins('deposit');
 
-    const myPrices = await getDepositCoinsPrices();
+    const myPrices = await getDepositCoinsPrices('deposit');
 
     myCoins.sort((a,b) => {
         return b.symbol.localeCompare(a.symbol);
@@ -20,13 +20,13 @@ async function start() {
 
     console.log(myPrices);
 
-    myCoins.map((item, index) => {
-        return {
-            symbol: item.symbol,
-            current_price: myPrices[index].price,
-            price_change_percentage_24h: item.price_change_percentage_24h
-        }
-    });
+    // myCoins.map((item, index) => {
+    //     return {
+    //         symbol: item.symbol,
+    //         current_price: myPrices[index].price,
+    //         price_change_percentage_24h: item.price_change_percentage_24h
+    //     }
+    // });
 
 }
 
