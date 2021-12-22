@@ -10,7 +10,7 @@ const ethAbi = require('./abi/eth.json');
 const ohmAbi = require('./abi/ohm.json');
 
 var corsOptions = {
-    origin: ['http://localhost:3000']
+    origin: ['http://localhost:3000', 'https://new-design--quipto.netlify.app']
   }
 
 app.get('/deposit', cors(corsOptions), async (req, res) => {
