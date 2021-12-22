@@ -27,6 +27,10 @@ const getDepositCoins = async(variant) => {
 
     myResponse = myResponse.filter(item => acceptedIds.includes(item.id));
 
+    myResponse.sort((a,b) => {
+      return b.symbol.localeCompare(a.symbol);
+    });
+
     return myResponse;
 }
 
@@ -78,6 +82,10 @@ const getDepositCoinsPrices = async (variant) => {
         price: 1,
       });
     }
+
+    myAssetsWithPrices.sort((a,b) => {
+      return b.externalId.localeCompare(a.externalId);
+    });
     
     return myAssetsWithPrices;
 }

@@ -37,14 +37,6 @@ app.get('/deposit', cors(corsOptions), async (req, res) => {
     const myCoins = await getDepositCoins('deposit');
     const myPrices = await getDepositCoinsPrices('deposit');
 
-    myCoins.sort((a,b) => {
-        return b.symbol.localeCompare(a.symbol);
-    });
-
-    myPrices.sort((a,b) => {
-        return b.externalId.localeCompare(a.externalId);
-    })
-
     // Build response object
     let myNewData = [];
     myNewData = myCoins.map((item, index) => {
@@ -91,14 +83,7 @@ app.get('/pools', cors(corsOptions), async (req, res) => {
     const myCoins = await getDepositCoins('pools');
     const myPrices = await getDepositCoinsPrices('pools');
 
-    myCoins.sort((a,b) => {
-        return b.symbol.localeCompare(a.symbol);
-    })  
-
-    myPrices.sort((a,b) => {
-        return b.externalId.localeCompare(a.externalId);
-    })
-
+    // Add price to additional coins
     myPrices.map(item => {
         if(item.externalId === 'OHM'){
             item.price = ohmPrice;
